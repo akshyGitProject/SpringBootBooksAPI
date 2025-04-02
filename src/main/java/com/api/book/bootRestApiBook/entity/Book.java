@@ -1,18 +1,20 @@
 package com.api.book.bootRestApiBook.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name="books_API")
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String author;
     private String title;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Author author;
+
+
 
     public int getId() {
         return id;
@@ -22,11 +24,11 @@ public class Book {
         this.id = id;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -41,7 +43,7 @@ public class Book {
 
     }
 
-    public Book(String title, int id, String author) {
+    public Book(String title, int id, Author author) {
         this.title = title;
         this.id = id;
         this.author = author;

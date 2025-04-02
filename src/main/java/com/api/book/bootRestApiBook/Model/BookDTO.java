@@ -1,11 +1,11 @@
 package com.api.book.bootRestApiBook.Model;
 
 
+import com.api.book.bootRestApiBook.entity.Author;
 
 public class BookDTO {
-
     private  String title;
-   private  String author;
+    private Author author;
 
     public String getTitle() {
         return title;
@@ -15,11 +15,11 @@ public class BookDTO {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -27,7 +27,7 @@ public class BookDTO {
 
     }
 
-    public BookDTO(String title, String author) {
+    public BookDTO(String title, Author author) {
         this.title = title;
         this.author = author;
     }
